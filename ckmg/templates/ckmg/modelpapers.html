@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>ck-management</title>
+<title>ck-management | Library</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="description" content="" />
 <meta name="author" content="http://bootstraptaste.com" />
@@ -19,9 +19,131 @@
     <div id="wrapper">
         
         <header>{% include "ckmg/header.html" %}</header>
+        <!--Adress with respect to home page  -->
+        <section id="inner-headline">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <ul class="breadcrumb">
+                            <li><a href="/"><i class="fa fa-home"></i></a><i class="icon-angle-right"></i></li>
+                            <li class="active"> Library / Model Papers</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- end of address bar   -->
         
-        <section>
-        	
+        <section style="background-color:#F5F5F5;">
+            <!-- start sidemenu here the no. of subject in sidemenu are there -->
+                <div class="container">
+                    <!-- Content Row -->
+                    <div class="row" style="margin-top:20px;">
+                        <div class="col-lg-3">
+                            <div class="col-lg-12" style="margin-bottom:-21px;">
+                                <div class="panel-group" id="accordion">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title">
+                                                <a class="accordion-toggle" href="/ckmg/modelpapers/{{ "CoS" }}/" >
+                                                    Core subject<i class="pull-right fa fa-chevron-right"></i>
+                                                </a>
+                                            </h4>
+                                        </div>
+                                    </div><!-- /.panel -->
+                                </div><!-- /.panel-group -->
+                            </div><!-- /.col-lg-12 -->
+
+                            <div class="col-lg-12" style="margin-bottom:-21px;">
+                                <div class="panel-group" id="accordion">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title">
+                                                <a class="accordion-toggle" href="/ckmg/modelpapers/{{ "FA" }}" >
+                                                    Finance<i class="pull-right fa fa-chevron-right"></i>
+                                                </a>
+                                            </h4>
+                                        </div>
+                                    </div><!-- /.panel -->
+                                </div><!-- /.panel-group -->
+                            </div><!-- /.col-lg-12 -->
+
+                            <div class="col-lg-12" style="margin-bottom:-21px;">
+                                <div class="panel-group" id="accordion">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title">
+                                                <a class="accordion-toggle" href="/ckmg/modelpapers/{{ "MR" }}" >
+                                                    Marketing<i class="pull-right fa fa-chevron-right"></i>
+                                                </a>
+                                            </h4>
+                                        </div>
+                                    </div><!-- /.panel -->
+                                </div><!-- /.panel-group -->
+                            </div><!-- /.col-lg-12 -->
+
+                            <div class="col-lg-12" style="margin-bottom:-21px;">
+                                <div class="panel-group" id="accordion">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title">
+                                                <a class="accordion-toggle" href="/ckmg/modelpapers/{{ "HR" }}" >
+                                                    Human Resource <i class="pull-right fa fa-chevron-right"></i>
+                                                </a>
+                                            </h4>
+                                        </div>
+                                    </div><!-- /.panel -->
+                                </div><!-- /.panel-group -->
+                            </div><!-- /.col-lg-12 -->
+                        </div>
+
+                        <div class="col-lg-1"></div>
+
+                        <div class="col-lg-8">
+                            {% if subject_list  %}
+                            {% for s in subject_list %}
+                                <script>var test = 1; </script>
+                                <div class="col-lg-12">
+                                    <div class="panel-group" id="accordion">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <h4 class="panel-title">
+                                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#{{ s.id }}" >{{ s.subject_name }}</a>    
+                                                </h4>
+                                            </div>
+                                            <div id="{{ s.id }}"   class="panel-collapse collapse">
+                                                <div class="panel-body">
+                                                   <ul>
+                                                        {% for detail in s.modelpaper_set.all %}
+                                                        <li>
+                                                            {{ detail.modelpaper_title }} 
+
+                                                            <span class="pull-right">
+                                                                <a class="" href="#" target="_blank"><i class="fa fa-download"></i> PDF file </a> 
+                                                            </span>        
+                                                        </li>
+                                                        {% endfor%}
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- /.panel -->
+                                        
+                                    </div>
+                                    <!-- /.panel-group -->
+                                </div>
+                                <!-- /.col-lg-12 -->
+                                    
+                            {% endfor %}
+                            {% else %}
+                                <p>subject not found</p>
+                            {% endif %}   
+
+                        </div>
+                    </div><!-- /.row -->
+                </div>          
+
         </section>
         
         <footer>{% include "ckmg/footer.html" %}</footer>

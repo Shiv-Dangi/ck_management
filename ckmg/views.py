@@ -5,7 +5,15 @@ from ckmg.models import *
 # Create your views here.
 
 def index(request):
-	return render(request, 'ckmg/index.html')
+	mrnews_list = news.objects.all().filter(news_type="MN")
+	hrnews_list = news.objects.all().filter(news_type="HRN")
+	fanews_list = news.objects.all().filter(news_type="FN")
+	conews_list = news.objects.all().filter(news_type="CO")
+	context = {'mrnews_list':mrnews_list, 'hrnews_list':hrnews_list, 'fanews_list':fanews_list, 'conews_list':conews_list}
+	return render(request, 'ckmg/index.html', context)
+
+def login_info(request):
+	return render(request, 'ckmg/login.html')
 
 def header_info(request):
 	return render(request, 'ckmg/header.html')
@@ -17,19 +25,77 @@ def aboutus_info(request):
 	return render(request, 'ckmg/aboutus.html')
 
 def theorynotes_info(request):
-	return render(request, 'ckmg/theorynotes.html')
+	subject_list = subject.objects.all().filter(subject_catagary="CoS")
+	context = {'subject_list':subject_list }
+	return render(request, 'ckmg/theorynotes.html', context)
+
+def theorynotes_subject(request, pm):
+	#current_branch = branch.objects.get(branch_title=b_name)
+	if pm == "CoS":
+		subject_list = subject.objects.all().filter(subject_catagary="CoS")
+	elif pm == "FA":
+		subject_list = subject.objects.all().filter(subject_catagary="FA")
+	elif pm == "MR":
+		subject_list = subject.objects.all().filter(subject_catagary="MR")
+	elif pm == "HR":
+		subject_list = subject.objects.all().filter(subject_catagary="HR")
+	else:
+		subject_list = subject.objects.all().filter(subject_catagary="CoS")
+	context = {'subject_list':subject_list }
+	return render(request, 'ckmg/theorynotes.html', context)
+
 
 def modelpapers_info(request):
-	return render(request, 'ckmg/modelpapers.html')
+	subject_list = subject.objects.all().filter(subject_catagary="CoS")
+	context = {'subject_list':subject_list }
+	return render(request, 'ckmg/modelpapers.html', context)
+
+def modelpapers_subject(request, pm):
+	#current_branch = branch.objects.get(branch_title=b_name)
+	if pm == "CoS":
+		subject_list = subject.objects.all().filter(subject_catagary="CoS")
+	elif pm == "FA":
+		subject_list = subject.objects.all().filter(subject_catagary="FA")
+	elif pm == "MR":
+		subject_list = subject.objects.all().filter(subject_catagary="MR")
+	elif pm == "HR":
+		subject_list = subject.objects.all().filter(subject_catagary="HR")
+	else:
+		subject_list = subject.objects.all().filter(subject_catagary="CoS")
+	context = {'subject_list':subject_list }
+	return render(request, 'ckmg/modelpapers.html', context)
+
+
 
 def ppt_info(request):
-	return render(request, 'ckmg/ppt.html')
+	subject_list = subject.objects.all().filter(subject_catagary="CoS")
+	context = {'subject_list':subject_list }
+	return render(request, 'ckmg/ppt.html', context)
+
+def ppt_subject(request, pm):
+	#current_branch = branch.objects.get(branch_title=b_name)
+	if pm == "CoS":
+		subject_list = subject.objects.all().filter(subject_catagary="CoS")
+	elif pm == "FA":
+		subject_list = subject.objects.all().filter(subject_catagary="FA")
+	elif pm == "MR":
+		subject_list = subject.objects.all().filter(subject_catagary="MR")
+	elif pm == "HR":
+		subject_list = subject.objects.all().filter(subject_catagary="HR")
+	else:
+		subject_list = subject.objects.all().filter(subject_catagary="CoS")
+	context = {'subject_list':subject_list }
+	return render(request, 'ckmg/ppt.html', context)
 
 def project_info(request):
-	return render(request, 'ckmg/projects.html')
+	project_list = project.objects.all()
+	context = {'project_list':project_list}
+	return render(request, 'ckmg/projects.html', context)
 
 def businessplan_info(request):
-	return render(request, 'ckmg/businessplan.html')
+	businessplan_list = buisness_plan.objects.all()
+	context = {'businessplan_list':businessplan_list}
+	return render(request, 'ckmg/businessplan.html', context)
 
 def service_info(request):
 	return render(request, 'ckmg/services.html')
@@ -41,4 +107,10 @@ def guidance_info(request):
 	return render(request, 'ckmg/guidance.html')
 
 def contact_info(request):
-	return render(request, 'ckmg/contactus.html')
+	if request.method == 'GET':
+		return render(request, 'ckmg/contactus.html')
+	else:
+		''' -----fetching the data from the user and saving it in database---- '''
+		data = contactus(fname= request.POST['fname'], subject= request.POST['subname'], email = request.POST['email'], phone_no = request.POST['phone_no'], message = request.POST['message'])
+		data.save()
+		return HttpResponseRedirect('#')

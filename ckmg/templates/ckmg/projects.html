@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>ck-management</title>
+<title>ck-management | Library</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="description" content="" />
 <meta name="author" content="http://bootstraptaste.com" />
@@ -19,11 +19,61 @@
     <div id="wrapper">
         
         <header>{% include "ckmg/header.html" %}</header>
-        
-        <section>
-        	
+        <!--Adress with respect to home page  -->
+        <section id="inner-headline">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <ul class="breadcrumb">
+                            <li><a href="/"><i class="fa fa-home"></i></a><i class="icon-angle-right"></i></li>
+                            <li class="active"> Library / Projects</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </section>
-        
+        <!-- end of address bar   -->
+       
+        <section style="background-color:#F5F5F5;">
+            <div class="container">
+                    <!-- Content Row -->
+                    <div class="row" style="margin-top:20px;">
+                    {% if project_list  %}
+                    {% for q in project_list %}
+                    <script>var test = 1; </script>
+                        <div class="col-lg-12">
+                            <div class="panel-group" id="accordion">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#{{   q.id }}" >{{ q.project_title }}</a>    
+                                        </h4>
+                                    </div>
+                                    <div id="{{ q.id }}"   class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                           {{ q.training_desc }} 
+                                           <div class="text-right">
+                                                <a class="btn btn-primary" href="{{ q.training_pdf_link }}" target="_blank"><i class="fa fa-download"></i> Docfile </a>
+                                                <a class="btn btn-primary" href="{{ q.training_pdf_link }}" target="_blank"><i class="fa fa-download"></i> pdffile </a>
+                                           </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- /.panel -->
+                                
+                            </div>
+                            <!-- /.panel-group -->
+                        </div>
+                        <!-- /.col-lg-12 -->
+                    {% endfor %}
+                    {% endif %}
+                    </div>
+                    <!-- /.row -->
+            </div>
+        </section>
+
+
         <footer>{% include "ckmg/footer.html" %}</footer>
         
     </div>
