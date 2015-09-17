@@ -66,7 +66,7 @@ class advertise(models.Model):
 	status = models.CharField(max_length=1, choices=status_choice, default='D')
 	date = models.DateField(auto_now=False, auto_now_add=False)  
 	def __unicode__(self):
-		return self.image
+		return self.html_link
 		
 
 class alumni(models.Model):

@@ -51,10 +51,10 @@
                                     </div>
                                     <div id="{{ q.id }}"   class="panel-collapse collapse">
                                         <div class="panel-body">
-                                           {{ q.training_desc }} 
-                                           <div class="text-right">
-                                                <span class="btn btn-primary" target="blank">Duration : {{ q.training_duration }}</span>
-                                                <a class="btn btn-primary" href="{{ q.training_pdf_link }}" target="_blank"><i class="fa fa-download"></i> syllabus </a>
+                                           {{ q.businessplan_desc }} 
+                                           <div class="pull-right">
+                                                <a href="../../../media/{{q.pdf_file}}" target="_blank"><i class="fa fa-download"></i> PDF file </a> &nbsp;
+                                                <a href="../../../media/{{q.ppt_file}}" target="_blank"><i class="fa fa-download"></i> PPT file </a>
                                            </div>
                                         </div>
                                     </div>

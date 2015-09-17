@@ -339,7 +339,7 @@ ul.nav li.dropdown a {
 ==================================== */
 section.callaction {
 	background:#f9f9f9;
-	padding:50px 0 0 0;
+	padding: 0px 0 0 0;
 }
 
 
@@ -351,7 +351,7 @@ section.callaction {
 #content {
 	position:relative;
 	background:#fff;
-	padding:50px 0 40px 0;
+	padding:25px 0 40px 0;
 }
 
 #content img {
@@ -1686,10 +1686,6 @@ a.scrollup i:hover {
 	position:relative;
 }
 
-.aligncenter{
-	text-align:center;
-}
-
 .aligncenter span{
 	margin-left:0;
 }
@@ -1704,10 +1700,6 @@ a.scrollup i:hover {
 
 .floatnone {
 	float:none;
-}
-
-.aligncenter {
-	text-align:center;
 }
 
 /* --- Image allignment style --- */

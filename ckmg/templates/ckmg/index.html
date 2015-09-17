@@ -61,20 +61,20 @@
         </section>
 
         <section class="callaction">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="big-cta">
-                        <div class="cta-text">
-                            <h2><span>Hot</span> News</h2>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="big-cta">
+                            <div class="cta-text">
+                                <h2><span>Hot</span> News</h2>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
         </section>
 
-            <section id="content">
+        <section id="content">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
@@ -83,15 +83,13 @@
                                 <div class="box">
                                     <div class="box-gray aligncenter">
                                         <h4>Marketing News</h4>
-                                        <div class="icon"><i class="fa fa-desktop fa-3x"></i></div>
-                                        {% if mrnews_list %}
-                                        {% for q in mrnews_list %}
-                                            <p>{{ q.news_title }}</p>
-                                        {% endfor %}
-                                        {% endif %}
-                                    </div>
-                                    <div class="box-bottom">
-                                        <a href="#">Learn more</a>
+                                        <ul>
+                                            {% if mrnews_list %}
+                                            {% for q in mrnews_list %}
+                                                <li><a href="{{ q.link }}">{{ q.news_title }}</a></li>
+                                            {% endfor %}
+                                            {% endif %}
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
@@ -99,15 +97,13 @@
                                 <div class="box">
                                     <div class="box-gray aligncenter">
                                         <h4>HR News</h4>
-                                        <div class="icon"><i class="fa fa-pagelines fa-3x"></i></div>
-                                        {% if hrnews_list %}
-                                        {% for q in hrnews_list %}
-                                            <p>{{ q.news_title }}</p>
-                                        {% endfor %}
-                                        {% endif %}
-                                    </div>
-                                    <div class="box-bottom">
-                                        <a href="#">Learn more</a>
+                                        <ul>
+                                            {% if hrnews_list %}
+                                            {% for q in hrnews_list %}
+                                                <li><a href="{{ q.link }}">{{ q.news_title }}</a></li>
+                                            {% endfor %}
+                                            {% endif %}
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
@@ -115,15 +111,13 @@
                                 <div class="box">
                                     <div class="box-gray aligncenter">
                                         <h4>Finance News</h4>
-                                        <div class="icon"><i class="fa fa-edit fa-3x"></i></div>
-                                        {% if fanews_list %}
-                                        {% for q in fanews_list %}
-                                            <p>{{ q.news_title }}</p>
-                                        {% endfor %}
-                                        {% endif %}      
-                                    </div>
-                                    <div class="box-bottom">
-                                        <a href="#">Learn more</a>
+                                        <ul>
+                                            {% if fanews_list %}
+                                            {% for q in fanews_list %}
+                                                <li><a href="{{ q.link }}">{{ q.news_title }}</a></li>
+                                            {% endfor %}
+                                            {% endif %} 
+                                        </ul>     
                                     </div>
                                 </div>
                             </div>
@@ -131,90 +125,61 @@
                                 <div class="box">
                                     <div class="box-gray aligncenter">
                                         <h4>Current Opening</h4>
-                                        <div class="icon"><i class="fa fa-code fa-3x"></i></div>
-                                        {% if conews_list %}
-                                        {% for q in conews_list %}
-                                            <p>{{ q.news_title }}</p>
-                                        {% endfor %}
-                                        {% endif %}
-                                    </div>
-                                    <div class="box-bottom">
-                                        <a href="#">Learn more</a>
+                                        <ul>
+                                            {% if conews_list %}
+                                            {% for q in conews_list %}
+                                                <li><a href="{{ q.link }}">{{ q.news_title }}</a></li>
+                                            {% endfor %}
+                                            {% endif %}
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- divider -->
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="solidline">
-                        </div>
-                    </div>
-                </div>
-                <!-- end divider -->
-                <!-- Portfolio Projects -->
+                
+                <!-- Advertisement -->
                 <div class="row">
                     <div class="col-lg-12">
                         <h4 class="heading">Advertisement</h4>
                         <div class="row">
                             <section id="projects">
-                            <ul id="thumbs" class="portfolio">
-                                <!-- Item Project and Filter Name -->
-                                <li class="col-lg-3 design" data-id="id-0" data-type="web">
-                                <div class="item-thumbs">
-                                <!-- Fancybox - Gallery Enabled - Title - Full Image -->
-                                <a class="hover-wrap fancybox" data-fancybox-group="gallery" title="Work 1" href="img/works/1.jpg">
-                                <span class="overlay-img"></span>
-                                <span class="overlay-img-thumb font-icon-plus"></span>
-                                </a>
-                                <!-- Thumb Image and Description -->
-                                <img src="{% static 'img/works/1.jpg' %}" alt="advertisement image">
-                                </div>
-                                </li>
-                                <!-- End Item Project -->
-                                <!-- Item Project and Filter Name -->
-                                <li class="item-thumbs col-lg-3 design" data-id="id-1" data-type="icon">
-                                <!-- Fancybox - Gallery Enabled - Title - Full Image -->
-                                <a class="hover-wrap fancybox" data-fancybox-group="gallery" title="Work 2" href="img/works/2.jpg">
-                                <span class="overlay-img"></span>
-                                <span class="overlay-img-thumb font-icon-plus"></span>
-                                </a>
-                                <!-- Thumb Image and Description -->
-                                <img src="{% static 'img/works/2.jpg' %}" alt="advertisement image">
-                                </li>
-                                <!-- End Item Project -->
-                                <!-- Item Project and Filter Name -->
-                                <li class="item-thumbs col-lg-3 photography" data-id="id-2" data-type="illustrator">
-                                <!-- Fancybox - Gallery Enabled - Title - Full Image -->
-                                <a class="hover-wrap fancybox" data-fancybox-group="gallery" title="Work 3" href="img/works/3.jpg">
-                                <span class="overlay-img"></span>
-                                <span class="overlay-img-thumb font-icon-plus"></span>
-                                </a>
-                                <!-- Thumb Image and Description -->
-                                <img src="{% static 'img/works/3.jpg' %}" alt="advertisement image">
-                                </li>
-                                <!-- End Item Project -->
-                                <!-- Item Project and Filter Name -->
-                                <li class="item-thumbs col-lg-3 photography" data-id="id-2" data-type="illustrator">
-                                <!-- Fancybox - Gallery Enabled - Title - Full Image -->
-                                <a class="hover-wrap fancybox" data-fancybox-group="gallery" title="Work 4" href="img/works/4.jpg">
-                                <span class="overlay-img"></span>
-                                <span class="overlay-img-thumb font-icon-plus"></span>
-                                </a>
-                                <!-- Thumb Image and Description -->
-                                <img src="{% static 'img/works/4.jpg' %}" alt="advertisement image">
-                                </li>
-                                <!-- End Item Project -->
-                            </ul>
+                                <ul id="thumbs" class="portfolio">
+                                    {% if advertisements %}
+                                    {% for q in advertisements %}
+                                        {% if q.status == "A" %}
+                                            <li class="col-lg-3 design">
+                                                <div class="item-thumbs">    
+                                                    <a class="hover-wrap" href="{{ q.html_link }}">
+                                                        <span class="overlay-img"></span>
+                                                        <span class="overlay-img-thumb font-icon-plus"></span>
+                                                    </a>
+                                                    <img src="../../../media/{{q.image}}" alt="advertisement image">
+                                                </div>
+                                            </li>
+                                        {% else %}
+                                            <li class="col-lg-3 design">
+                                                <div class="item-thumbs">    
+                                                    <a class="hover-wrap" href="#">
+                                                        <span class="overlay-img"></span>
+                                                        <span class="overlay-img-thumb font-icon-plus"></span>
+                                                    </a>
+                                                    <img src="../../../media/{{q.image}}" alt="advertisement image">
+                                                </div>
+                                            </li>
+                                        {% endif %}
+                                    {% endfor %}
+                                    {% endif %}
+                                </ul>
                             </section>
                         </div>
                     </div>
                 </div>
 
             </div>
-            </section>
+        </section>
+
 <!--==========================================================================================  -->
 <!--==========================================================================================  -->
         <footer>{% include "ckmg/footer.html" %}</footer>

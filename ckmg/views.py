@@ -9,7 +9,8 @@ def index(request):
 	hrnews_list = news.objects.all().filter(news_type="HRN")
 	fanews_list = news.objects.all().filter(news_type="FN")
 	conews_list = news.objects.all().filter(news_type="CO")
-	context = {'mrnews_list':mrnews_list, 'hrnews_list':hrnews_list, 'fanews_list':fanews_list, 'conews_list':conews_list}
+	advertisements = advertise.objects.all()
+	context = {'mrnews_list':mrnews_list, 'hrnews_list':hrnews_list, 'fanews_list':fanews_list, 'conews_list':conews_list, 'advertisements':advertisements}
 	return render(request, 'ckmg/index.html', context)
 
 def login_info(request):
