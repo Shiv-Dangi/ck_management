@@ -57,6 +57,7 @@ class result(models.Model):
 
 				
 class advertise(models.Model):
+	advertiser_name = models.CharField(max_length=100)
 	image = models.ImageField(upload_to="Images/Advertisement")
 	html_link = models.CharField(max_length=200,default="https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxkcmNoaXRyYWRoYXdhbGV8Z3g6NDQzYzkwN2Y3YzY2ZWRjYw")
 	status_choice = (
@@ -66,7 +67,7 @@ class advertise(models.Model):
 	status = models.CharField(max_length=1, choices=status_choice, default='D')
 	date = models.DateField(auto_now=False, auto_now_add=False)  
 	def __unicode__(self):
-		return self.html_link
+		return self.advertiser_name
 		
 
 class alumni(models.Model):
