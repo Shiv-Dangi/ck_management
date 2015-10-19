@@ -5,7 +5,8 @@ from ckmg.models import *
 from django.contrib import auth
 from django.contrib.auth.decorators import login_required
 from django.core.context_processors import csrf
-from django.contrib.auth.forms import UserCreationForm
+#from django.contrib.auth.forms import UserCreationForm
+from forms import MyRegistrationForm
 
 # Create your views here.
 
@@ -159,12 +160,12 @@ def logout(request):
 def register_user(request):
     if request.method == 'POST':
 
-        form = UserCreationForm(request.POST)
+        form = MyRegistrationForm(request.POST)
         if form.is_valid():
             new_user = form.save()
             return HttpResponseRedirect("/accounts/register_success")
     else:
-        form = UserCreationForm()
+        form = MyRegistrationForm()
     return render(request, "ckmg/signup.html", {'form': form,})
 
 
