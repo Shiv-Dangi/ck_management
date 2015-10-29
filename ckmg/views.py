@@ -11,12 +11,13 @@ from forms import MyRegistrationForm
 # Create your views here.
 
 def index(request):
+	slider_img = slider_image.objects.all()
 	mrnews_list = news.objects.all().filter(news_type="MN")
 	hrnews_list = news.objects.all().filter(news_type="HRN")
 	fanews_list = news.objects.all().filter(news_type="FN")
 	conews_list = news.objects.all().filter(news_type="CO")
 	advertisements = advertise.objects.all()
-	context = {'mrnews_list':mrnews_list, 'hrnews_list':hrnews_list, 'fanews_list':fanews_list, 'conews_list':conews_list, 'advertisements':advertisements, 'full_name': request.user.username}
+	context = {'slider_img':slider_img, 'mrnews_list':mrnews_list, 'hrnews_list':hrnews_list, 'fanews_list':fanews_list, 'conews_list':conews_list, 'advertisements':advertisements, 'full_name': request.user.username}
 	return render(request, 'ckmg/index.html', context)
 
 def header_info(request):
@@ -163,7 +164,7 @@ def register_user(request):
         form = MyRegistrationForm(request.POST)
         if form.is_valid():
             new_user = form.save()
-            return HttpResponseRedirect("/accounts/register_success")
+            return HttpResponseRedirect("/accounts/login")
     else:
         form = MyRegistrationForm()
     return render(request, "ckmg/signup.html", {'form': form,})

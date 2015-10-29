@@ -13,4 +13,5 @@ admin.site.register(theorynotes)
 admin.site.register(contactus)
 admin.site.register(ppt)
 admin.site.register(modelpaper)
+admin.site.register(slider_image)
 

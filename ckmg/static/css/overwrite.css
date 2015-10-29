@@ -613,9 +613,6 @@ font-size: 10px;
 .btn-primary {
 	outline:0;
 }
-.btn-primary:hover {
-  background: #170110;
-}
 
 .btn-info:hover {
   background: #569498;

@@ -128,6 +128,14 @@ class modelpaper(models.Model):
 		return self.modelpaper_title
 
 
+class slider_image(models.Model):
+	slider_image = models.ImageField(upload_to="Images/Slider/")
+	image_quote = models.TextField(max_length=500,default="quote for image")
+
+	def __unicode__(self):              
+        	return self.image_quote	
+
+
 
 		
 		
