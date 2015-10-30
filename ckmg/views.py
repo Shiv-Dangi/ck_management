@@ -5,11 +5,9 @@ from ckmg.models import *
 from django.contrib import auth
 from django.contrib.auth.decorators import login_required
 from django.core.context_processors import csrf
-#from django.contrib.auth.forms import UserCreationForm
 from forms import MyRegistrationForm
 
 # Create your views here.
-
 def index(request):
 	slider_img = slider_image.objects.all()
 	mrnews_list = news.objects.all().filter(news_type="MN")
@@ -29,6 +27,20 @@ def footer_info(request):
 def aboutus_info(request):
 	return render(request, 'ckmg/aboutus.html', {'full_name': request.user.username})
 
+#Mind Program views
+def dmit_info(request):
+	return render(request, 'ckmg/dmitanalysis.html', {'full_name': request.user.username})
+
+def urja_info(request):
+	return render(request, 'ckmg/urja.html', {'full_name': request.user.username})
+
+def success_club_info(request):
+	return render(request, 'ckmg/success_club.html', {'full_name': request.user.username})
+
+def other_mind_programming_info(request):
+	return render(request, 'ckmg/other_mind_programming.html', {'full_name': request.user.username})
+
+#Librery views
 @login_required
 def theorynotes_info(request):
 	subject_list = subject.objects.all().filter(subject_catagary="CoS")
@@ -37,7 +49,6 @@ def theorynotes_info(request):
 
 @login_required
 def theorynotes_subject(request, pm):
-	#current_branch = branch.objects.get(branch_title=b_name)
 	if pm == "CoS":
 		subject_list = subject.objects.all().filter(subject_catagary="CoS")
 	elif pm == "FA":
@@ -59,7 +70,6 @@ def modelpapers_info(request):
 
 @login_required
 def modelpapers_subject(request, pm):
-	#current_branch = branch.objects.get(branch_title=b_name)
 	if pm == "CoS":
 		subject_list = subject.objects.all().filter(subject_catagary="CoS")
 	elif pm == "FA":
@@ -82,7 +92,6 @@ def ppt_info(request):
 
 @login_required
 def ppt_subject(request, pm):
-	#current_branch = branch.objects.get(branch_title=b_name)
 	if pm == "CoS":
 		subject_list = subject.objects.all().filter(subject_catagary="CoS")
 	elif pm == "FA":
@@ -106,6 +115,8 @@ def businessplan_info(request):
 	context = {'businessplan_list':businessplan_list, 'full_name': request.user.username}
 	return render(request, 'ckmg/businessplan.html', context)
 
+
+#services views
 def service_info(request):
 	return render(request, 'ckmg/services.html', {'full_name': request.user.username})
 
@@ -114,6 +125,7 @@ def training_info(request):
 
 def guidance_info(request):
 	return render(request, 'ckmg/guidance.html', {'full_name': request.user.username})
+
 
 def contact_info(request):
 	if request.method == 'GET':
@@ -146,7 +158,6 @@ def auth_view(request):
 
 def loggedin(request):
 	return render_to_response('ckmg/index.html', {'full_name': request.user.username})
-	#return render_to_response('ckmg/loggedin.html')
 
 
 def invalid_login(request):

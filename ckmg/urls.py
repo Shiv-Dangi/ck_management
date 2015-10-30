@@ -7,6 +7,14 @@ urlpatterns = patterns('',
     url(r'^ckmg/header/$', views.header_info, name='header_info'),
     url(r'^ckmg/footer/$', views.footer_info, name='footer_info'),
     url(r'^ckmg/aboutus/$', views.aboutus_info, name='aboutus_info'),
+    
+    #Mind Program urls
+    url(r'^ckmg/dmitanalysis/$', views.dmit_info, name='dmit_info'),
+    url(r'^ckmg/urja/$', views.urja_info, name='urja_info'),
+    url(r'^ckmg/success_club/$', views.success_club_info, name='success_club_info'),
+    url(r'^ckmg/other_mind_programming/$', views.other_mind_programming_info, name='other_mind_programming_info'),
+
+    # Library menu urls
     url(r'^ckmg/theorynotes/$', views.theorynotes_info, name='theorynotes_info'),
     url(r'^ckmg/theorynotes/(?P<pm>\w+)/$', views.theorynotes_subject, name='theorynotes_subject'),
     url(r'^ckmg/modelpapers/$', views.modelpapers_info, name='modelpapers_info'),
@@ -15,11 +23,12 @@ urlpatterns = patterns('',
     url(r'^ckmg/ppt/(?P<pm>\w+)/$', views.ppt_subject, name='ppt_subject'),
     url(r'^ckmg/project/$', views.project_info, name='project_info'),
     url(r'^ckmg/businessplan/$', views.businessplan_info, name='businessplan_info'),
+
+    #services menu urls
     url(r'^ckmg/service/$', views.service_info, name='service_info'),
     url(r'^ckmg/training/$', views.training_info, name='training_info'),
     url(r'^ckmg/guidance/$', views.guidance_info, name='guidance_info'),
     url(r'^ckmg/contact/$', views.contact_info, name='contact_info'),
-
 
     # user auth urls
     url(r'^accounts/login/$', views.login, name='login'),

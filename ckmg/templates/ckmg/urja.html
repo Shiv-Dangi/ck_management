@@ -1,0 +1,113 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>ck-management | Urja</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="description" content="" />
+	<meta name="author" content="http://bootstraptaste.com" />
+	<!-- css -->
+	<link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" />
+	<link href="{% static 'css/fancybox/jquery.fancybox.css' %}" rel="stylesheet">
+	<link href="{% static 'css/flexslider.css' %}" rel="stylesheet" />
+	<link href="{% static 'css/style.css' %}" rel="stylesheet" />
+	<link href="{% static 'skins/default.css' %}" rel="stylesheet" />
+	<link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet" type="text/css" >
+</head>
+<body>
+    <div id="wrapper">
+        
+        <header>{% include "ckmg/header.html" %}</header>
+        <!--Adress with respect to home page  -->
+        <section id="inner-headline">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <ul class="breadcrumb">
+                            <li><a href="/"><i class="fa fa-home"></i></a><i class="icon-angle-right"></i></li>
+                            <li class="active"> Mind Program / URJA</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- end of address bar   -->
+
+        <section style="background-color:#F5F5F5;">
+        	<div class="container">
+    		   <div class="row" style="padding-top:25px;">
+    				<div class="col-lg-4">  
+    					<img src="{% static 'img/services/globe.jpg' %}" height="370"/>
+    				</div>
+    			    <div class="col-lg-8">
+
+    			    	<div class="row-fluid">
+							<div class="col-lg-12"><h3> Topics of URJA Sessions</h3> </div>
+						</div>
+						<br>
+					   
+    			    	<div class="row-fluid">
+							<div class="col-lg-5"><h4 ><i class="fa fa-star"></i> The Power of Habit</h4> </div>
+							<div class="col-lg-7"><h4><i class="fa fa-star"></i> The Power of Focus for Students</h4> </div>
+						</div>
+						<br>
+			
+						<div class="row-fluid">
+							<div class="col-lg-5"><h4><i class="fa fa-star"></i> The Power of Mind</h4></div>
+							<div class="col-lg-7"><h4><i class="fa fa-star"></i> The Power of Positive Word</h4></div>
+						</div>
+						<br>
+
+						<div class="row-fluid">
+							<div class="col-lg-5"><h4><i class="fa fa-star"></i> The Power of Choice</h4></div>			
+							<div class="col-lg-7"><h4><i class="fa fa-star"></i> Mind Application for Students</h4></div>
+						</div>
+						<br>
+
+						<div  class="row-fluid">
+							<div class="col-lg-5"><h4><i class="fa fa-star"></i> The Power of Desire</h4></div>
+							<div class="col-lg-7"><h4><i class="fa fa-star"></i> Realistic Positive Thinking</h4></div>
+						</div>
+						<br>
+
+						<div class="row-fluid">
+							<div class="col-lg-5"><h4><i class="fa fa-star"></i> The Power of Learning</h4></div>
+							<div class="col-lg-7"><h4><i class="fa fa-star"></i> The Power of Subconscious Mind</h4></div>
+						</div>
+						<br>
+
+						<div class="row-fluid">
+							<div class="col-lg-12"><h4><i class="fa fa-star"></i> Guaranteed Success with Mind Programming</h4></div>
+						</div>	
+
+					</div>
+					
+				</div><!-- end of row-->
+            </div>
+        <!-- end of container -->
+        </section>
+        
+        <footer>{% include "ckmg/footer.html" %}</footer>
+        
+    </div>
+
+
+	<a href="#" class="scrollup"><i class="fa fa-angle-up active"></i></a>
+	<!-- javascript
+    	================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="{% static 'js/jquery.js' %}"></script>
+	<script src="{% static 'js/jquery.easing.1.3.js' %}"></script>
+	<script src="{% static 'js/bootstrap.min.js' %}"></script>
+	<script src="{% static 'js/jquery.fancybox.pack.js' %}"></script>
+	<script src="{% static 'js/jquery.fancybox-media.js' %}"></script>
+	<script src="{% static 'js/google-code-prettify/prettify.js' %}"></script>
+	<script src="{% static 'js/portfolio/jquery.quicksand.js' %}"></script>
+	<script src="{% static 'js/portfolio/setting.js' %}"></script>
+	<script src="{% static 'js/jquery.flexslider.js' %}"></script>
+	<script src="{% static 'js/animate.js' %}"></script>
+	<script src="{% static 'js/custom.js' %}"></script>
+</body>
+</html>
