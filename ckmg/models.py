@@ -84,6 +84,7 @@ class alumni(models.Model):
 
 class buisness_plan(models.Model):
 	buisness_title = models.CharField(max_length=100)
+	buisnessplan_desc = models.TextField(max_length=5000, default="Buisness Plan Describtion")
 	pdf_file = models.FileField(upload_to="Docs/buisness_plan/pdf")
 	ppt_file = models.FileField(upload_to="Docs/buisness_plan/ppt")
 	date = models.DateField(auto_now=False, auto_now_add=False)
@@ -93,6 +94,7 @@ class buisness_plan(models.Model):
 
 class project(models.Model):
 	project_title = models.CharField(max_length=100)
+	project_desc = models.TextField(max_length=5000, default="Project Describtion")
 	doc_file = models.FileField(upload_to="Docs/project/docfile")
 	pdf_file = models.FileField(upload_to="Docs/project/pdf")
 	date = models.DateField(auto_now=False, auto_now_add=False)

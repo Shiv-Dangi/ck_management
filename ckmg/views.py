@@ -36,9 +36,7 @@ def urja_info(request):
 
 def success_club_info(request):
 	return render(request, 'ckmg/success_club.html', {'full_name': request.user.username})
-
-def other_mind_programming_info(request):
-	return render(request, 'ckmg/other_mind_programming.html', {'full_name': request.user.username})
+ 
 
 #Librery views
 @login_required
@@ -157,7 +155,14 @@ def auth_view(request):
 
 
 def loggedin(request):
-	return render_to_response('ckmg/index.html', {'full_name': request.user.username})
+	slider_img = slider_image.objects.all()
+	mrnews_list = news.objects.all().filter(news_type="MN")
+	hrnews_list = news.objects.all().filter(news_type="HRN")
+	fanews_list = news.objects.all().filter(news_type="FN")
+	conews_list = news.objects.all().filter(news_type="CO")
+	advertisements = advertise.objects.all()
+	context = {'slider_img':slider_img, 'mrnews_list':mrnews_list, 'hrnews_list':hrnews_list, 'fanews_list':fanews_list, 'conews_list':conews_list, 'advertisements':advertisements, 'full_name': request.user.username}
+	return render_to_response('ckmg/index.html', context)
 
 
 def invalid_login(request):
@@ -166,7 +171,14 @@ def invalid_login(request):
 
 def logout(request):
 	auth.logout(request)
-	return render_to_response('ckmg/index.html')
+	slider_img = slider_image.objects.all()
+	mrnews_list = news.objects.all().filter(news_type="MN")
+	hrnews_list = news.objects.all().filter(news_type="HRN")
+	fanews_list = news.objects.all().filter(news_type="FN")
+	conews_list = news.objects.all().filter(news_type="CO")
+	advertisements = advertise.objects.all()
+	context = {'slider_img':slider_img, 'mrnews_list':mrnews_list, 'hrnews_list':hrnews_list, 'fanews_list':fanews_list, 'conews_list':conews_list, 'advertisements':advertisements, 'full_name': request.user.username}
+	return render_to_response('ckmg/index.html', context)
 
 
 def register_user(request):
@@ -182,7 +194,7 @@ def register_user(request):
 
 
 def register_success(request):
-    return render_to_response('ckmg/register_success.html')
+    return render_to_response('ckmg/login.html')
 
 
 	

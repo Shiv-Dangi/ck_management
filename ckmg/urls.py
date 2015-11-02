@@ -12,7 +12,6 @@ urlpatterns = patterns('',
     url(r'^ckmg/dmitanalysis/$', views.dmit_info, name='dmit_info'),
     url(r'^ckmg/urja/$', views.urja_info, name='urja_info'),
     url(r'^ckmg/success_club/$', views.success_club_info, name='success_club_info'),
-    url(r'^ckmg/other_mind_programming/$', views.other_mind_programming_info, name='other_mind_programming_info'),
 
     # Library menu urls
     url(r'^ckmg/theorynotes/$', views.theorynotes_info, name='theorynotes_info'),
