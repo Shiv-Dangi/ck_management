@@ -5,6 +5,7 @@ from ckmg.models import *
 from django.contrib import auth
 from django.contrib.auth.decorators import login_required
 from django.core.context_processors import csrf
+#from django.contrib.auth.forms import UserCreationForm
 from forms import MyRegistrationForm
 
 # Create your views here.
@@ -39,13 +40,13 @@ def success_club_info(request):
  
 
 #Librery views
-@login_required
+@login_required(login_url='/accounts/login/')
 def theorynotes_info(request):
 	subject_list = subject.objects.all().filter(subject_catagary="CoS")
 	context = {'subject_list':subject_list, 'full_name': request.user.username}
 	return render(request, 'ckmg/theorynotes.html', context)
 
-@login_required
+@login_required(login_url='/accounts/login/')
 def theorynotes_subject(request, pm):
 	if pm == "CoS":
 		subject_list = subject.objects.all().filter(subject_catagary="CoS")
@@ -60,13 +61,13 @@ def theorynotes_subject(request, pm):
 	context = {'subject_list':subject_list, 'full_name': request.user.username }
 	return render(request, 'ckmg/theorynotes.html', context)
 
-@login_required
+@login_required(login_url='/accounts/login/')
 def modelpapers_info(request):
 	subject_list = subject.objects.all().filter(subject_catagary="CoS")
 	context = {'subject_list':subject_list, 'full_name': request.user.username }
 	return render(request, 'ckmg/modelpapers.html', context)
 
-@login_required
+@login_required(login_url='/accounts/login/')
 def modelpapers_subject(request, pm):
 	if pm == "CoS":
 		subject_list = subject.objects.all().filter(subject_catagary="CoS")
@@ -82,13 +83,13 @@ def modelpapers_subject(request, pm):
 	return render(request, 'ckmg/modelpapers.html', context)
 
 
-@login_required
+@login_required(login_url='/accounts/login/')
 def ppt_info(request):
 	subject_list = subject.objects.all().filter(subject_catagary="CoS")
 	context = {'subject_list':subject_list, 'full_name': request.user.username}
 	return render(request, 'ckmg/ppt.html', context)
 
-@login_required
+@login_required(login_url='/accounts/login/')
 def ppt_subject(request, pm):
 	if pm == "CoS":
 		subject_list = subject.objects.all().filter(subject_catagary="CoS")
@@ -143,11 +144,11 @@ def login(request):
 
 
 def auth_view(request):
-	username = request.POST.get('username', '')
-	password = request.POST.get('password', '')
+	username = request.POST.get('username')
+	password = request.POST.get('password')
 	user = auth.authenticate(username=username, password=password)
 	
-	if user:
+	if user is not None:
 		auth.login(request, user)
 		return HttpResponseRedirect("/accounts/loggedin")
 	else:

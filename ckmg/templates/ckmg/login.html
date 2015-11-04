@@ -15,7 +15,8 @@
 					 		<p class="error">Sorry, that's not a valid username or password</p>
 					 	{% endif %}
 
-					 	<form action="/accounts/auth/" class="form-horizontal" role="form" id="loginform" method="post">{% csrf_token %}
+					 	<form action="/accounts/auth/" class="form-horizontal" role="form" id="loginform" method="post">
+                            {% csrf_token %}
 					 		<div style="margin-bottom: 25px" class="input-group">
                                 <label for="username" class="input-group-addon"><i class="fa fa-user"></i> User name:</label>
 					 			<input type="text" name="username" value="" id="username" class="form-control" placeholder="abc">                                        

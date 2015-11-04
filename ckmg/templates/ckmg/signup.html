@@ -9,12 +9,14 @@
                     <div style="float:right; font-size: 85%; position: relative; top:-10px"><a id="signinlink"  style="color:#fff;" href="/accounts/login/">Sign In</a></div>
                 </div>
                 <div class="panel-body" >
+                    <!--
                     {% if form.errors %}
                         <p style="color: red;">
                             Please correct the error{{ form.errors|pluralize }} below.
                         </p>
-                    {% endif %}
-				    <form id="signupform" action="/accounts/register/" method="post" class="form-horizontal" role="form">{% csrf_token %}
+                    {% endif %}-->
+				    <form id="signupform" action="/accounts/register/" method="post" class="form-horizontal" role="form">
+                        {% csrf_token %}
                         <div class="form-group">
                             {{ form.username.errors }}
                             <label for="email" class="col-md-3 control-label">Username:</label>
@@ -22,6 +24,7 @@
                                 {{ form.username }}
                             </div>
                         </div>
+                        
                         <div class="form-group">
                             {{ form.email.errors }}
                             <label for="email" class="col-md-3 control-label">Email:</label>
@@ -29,6 +32,7 @@
                                 {{ form.email }}
                             </div>
                         </div>
+                        
                         <div class="form-group">
                             {{ form.first_name.errors }}
                             <label for="email" class="col-md-3 control-label">First Name:</label>
@@ -36,6 +40,7 @@
                                 {{ form.first_name }}
                             </div>
                         </div>
+
                         <div class="form-group">
                             {{ form.last_name.errors }}
                             <label for="email" class="col-md-3 control-label">Last Name:</label>
@@ -43,6 +48,7 @@
                                 {{ form.last_name }}
                             </div>
                         </div>
+
                         <div class="form-group">
                             {{ form.password1.errors }}
                             <label for="email" class="col-md-3 control-label">Password:</label>
@@ -50,6 +56,7 @@
                                 {{ form.password1 }}
                             </div>
                         </div>
+                        
                         <div class="form-group">
                             {{ form.password2.errors }}
                             <label for="email" class="col-md-3 control-label">Password(confirm):</label>
