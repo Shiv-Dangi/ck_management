@@ -2,7 +2,27 @@
 
 {% block content %}
 	
-	<h2>Your login details are invalid!</h2>
-	<p>Click <a href="/accounts/login/">here</a> to login.</p>
+	<!--Adress with respect to home page  -->
+    <section id="inner-headline">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul class="breadcrumb">
+                        <li><a href="/"><i class="fa fa-home"></i></a> <span class="active">Welcome to CK-Management</span> </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end of address bar   -->
+
+ 	<section>
+			
+	    <div class="container">         
+           <h2>Your login details are invalid!</h2>
+			<p>Click <a href="/accounts/login/">here</a> to login.</p>
+	    </div><!--end of container class -->
+
+   	</section>
 
 {% endblock%}

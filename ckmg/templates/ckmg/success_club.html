@@ -1,25 +1,6 @@
+{% extends "base.html" %}
 {% load staticfiles %}
-<!DOCTYPE html>
-
-<html lang="en">
-<head>
-	<meta charset="utf-8">
-	<title>ck-management | Success_club</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<meta name="description" content="" />
-	<meta name="author" content="http://bootstraptaste.com" />
-	<!-- css -->
-	<link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" />
-	<link href="{% static 'css/fancybox/jquery.fancybox.css' %}" rel="stylesheet">
-	<link href="{% static 'css/flexslider.css' %}" rel="stylesheet" />
-	<link href="{% static 'css/style.css' %}" rel="stylesheet" />
-	<link href="{% static 'skins/default.css' %}" rel="stylesheet" />
-	<link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet" type="text/css" >
-</head>
-<body>
-    <div id="wrapper">
-        
-        <header>{% include "ckmg/header.html" %}</header>
+	{% block content %}
         <!--Adress with respect to home page  -->
         <section id="inner-headline">
             <div class="container">
@@ -202,26 +183,4 @@
             </div>
         <!-- end of container -->
         </section>
-        
-        <footer>{% include "ckmg/footer.html" %}</footer>
-        
-    </div>
-
-
-	<a href="#" class="scrollup"><i class="fa fa-angle-up active"></i></a>
-	<!-- javascript
-    	================================================== -->
-	<!-- Placed at the end of the document so the pages load faster -->
-	<script src="{% static 'js/jquery.js' %}"></script>
-	<script src="{% static 'js/jquery.easing.1.3.js' %}"></script>
-	<script src="{% static 'js/bootstrap.min.js' %}"></script>
-	<script src="{% static 'js/jquery.fancybox.pack.js' %}"></script>
-	<script src="{% static 'js/jquery.fancybox-media.js' %}"></script>
-	<script src="{% static 'js/google-code-prettify/prettify.js' %}"></script>
-	<script src="{% static 'js/portfolio/jquery.quicksand.js' %}"></script>
-	<script src="{% static 'js/portfolio/setting.js' %}"></script>
-	<script src="{% static 'js/jquery.flexslider.js' %}"></script>
-	<script src="{% static 'js/animate.js' %}"></script>
-	<script src="{% static 'js/custom.js' %}"></script>
-</body>
-</html>
+    {% endblock %}
