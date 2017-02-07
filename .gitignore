@@ -13,6 +13,7 @@ develop-eggs/
 dist/
 downloads/
 eggs/
+.pyc
 .eggs/
 lib/
 lib64/
@@ -55,3 +56,4 @@ docs/_build/
 
 # PyBuilder
 target/
+settings.py

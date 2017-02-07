@@ -8,7 +8,7 @@ class contactus(models.Model):
 	fname = models.CharField(max_length=50)
 	subject = models.CharField(max_length=50)
 	email = models.EmailField(max_length=50)
-	phone_no = models.IntegerField(blank=True,validators=[RegexValidator(regex='^.{10}$', message='Mobile no has to be 10 digits long', code='nomatch')])
+	phone_no = models.IntegerField(blank=True)
 	message = models.TextField(max_length=5000)
 
 	def __unicode__(self):              
@@ -47,7 +47,7 @@ class subject(models.Model):
 
 class result(models.Model):
 	batch = models.CharField(max_length=20)
-	year = models.IntegerField(max_length=4, default=2011)
+	year = models.IntegerField(default=2011)
 	student_name = models.CharField(max_length=50)
 	college_name = models.CharField(max_length=100)
 	course = models.CharField(max_length=100)
@@ -72,7 +72,7 @@ class advertise(models.Model):
 
 class alumni(models.Model):
 	batch = models.CharField(max_length=20)
-	year = models.IntegerField(max_length=4, default=2011)
+	year = models.IntegerField(default=2011)
 	student_name = models.CharField(max_length=50)
 	college_name = models.CharField(max_length=100)
 	course = models.CharField(max_length=100)
