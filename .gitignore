@@ -13,6 +13,7 @@ develop-eggs/
 dist/
 downloads/
 eggs/
+.pyc
 .eggs/
 lib/
 lib64/
